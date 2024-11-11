@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise chaining</title>
+  </head>
+  <body>
+    <h1>Promise chaining</h1>
+
+    <script>
+        // -> when promise is fulfill then the result of that promise will get in other .then() and the result of other .then() will get in next so the chain of .then() is called promise chaining.
+      
+      let pro1=new Promise((resolve,reject)=>
+      {
+          console.log('promise 1 pending');
+          setTimeout(()=>
+      {
+          resolve(101)
+      },1000)
+      })
+      pro1.then((a)=>
+      {
+          console.log(a);
+      
+          let pro2=new Promise((resolve,reject)=>
+      {
+           console.log('pending promise 2');
+           setTimeout(()=>
+          {
+              resolve(202)
+          },2000)   
+      })
+      pro2.then((s)=>
+      {
+          console.log(s)
+      })
+      
+      })
+      </script>
+  </body>
+</html>
+
